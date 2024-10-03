@@ -18,7 +18,13 @@ export const store = async (req, res) => {
 
 export const index = async (req, res) => {
   try {
-    const content = await Post.find().exec();
+    const filter = {
+      user: {
+        $in: req.user.following,
+      },
+    };
+
+    const content = await Post.find(filter).exec();
 
     res.json(content);
   } catch (error) {
