@@ -22,6 +22,15 @@ const userSchema = new Schema(
         },
       },
     },
+    role: {
+      type: Schema.Types.String,
+      enum: ["USER", "ADMINISTRATOR"],
+      default: "USER"
+    },
+    following: {
+      type: [Schema.Types.ObjectId],
+      ref: "User"
+    }
   },
   {
     timestamps: true,

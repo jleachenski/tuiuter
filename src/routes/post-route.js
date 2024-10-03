@@ -10,12 +10,12 @@ import {
 const router = Router();
 
 // Rotas públicas
-router.get("/", index);
-router.get("/:id", show);
 
 router.use(authenticator);
 
 // Rotas privadas
+router.get("/", index);
+router.get("/:id", show);
 router.post("/", store);
 router.put("/:id", update);
 router.delete("/:id", destroy);
